@@ -8,15 +8,13 @@ public class CameraController : MonoBehaviour
 
     private Vector3 offset;
     public bool f;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         offset = transform.position - player.transform.position;
-         //Debug.Log("Offset - " + offset);
     }
     
-    // Update is called once per frame
+    
     void LateUpdate()
     {
         if (!f) transform.position = player.transform.position + offset;
@@ -24,9 +22,7 @@ public class CameraController : MonoBehaviour
         {
             Rotation();
             Flay();
-        }
-        
-        // transform.rotation = player.transform.rotation;
+        }        
     }
 
     public void Rotation()

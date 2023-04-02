@@ -1,42 +1,43 @@
-using Asteroids;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+
+namespace Asteroids
 {
-    public Rigidbody2D _rigidbody;
-    [SerializeField] private float _speed = 500.0f;
-    [SerializeField] private float _maxLifeTime = 5.0f;
-    public int damage = 100;
-
-    private void Awake()
+    public class Bullet : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+        public Rigidbody2D _rigidbody;
+        public float speed = 500.0f;
+        public float maxLifeTime = 5.0f;
+        public int damage = 100;
 
-    public void Project(Vector2 direction)
-    { 
-        _rigidbody.AddForce(direction * _speed);
-        Invoke(nameof(AddPool), _maxLifeTime);
-        Invoke(nameof(AddCollaider), 0.1f);
-    }
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
 
-    public void AddCollaider() { gameObject.AddComponent<PolygonCollider2D>(); }
+        public void Project(Vector2 direction)
+        {
+            _rigidbody.AddForce(direction * speed);
+            Invoke(nameof(AddPool), maxLifeTime);
+            Invoke(nameof(AddCollaider), 0.1f);
+        }
 
-    private void AddPool()
-    {
-        Destroy(gameObject.GetComponent<PolygonCollider2D>());
-        gameObject.SetActive(false);
-        if (gameObject.name == "Bullet(Clone)") TurretManager.Instance.bulletPool.Enqueue(this);
-        else if (gameObject.name == "Plasma Ball(Clone)") TurretManager.Instance.plasmaBallPool.Enqueue(this);
-    }
+        public void AddCollaider() { gameObject.AddComponent<PolygonCollider2D>(); }
+
+        private void AddPool()
+        {
+            Destroy(gameObject.GetComponent<PolygonCollider2D>());
+            gameObject.SetActive(false);
+            if (gameObject.name == "Bullet(Clone)") TurretManager.Instance.bulletPool.Enqueue(this);
+            else if (gameObject.name == "Plasma Ball(Clone)") TurretManager.Instance.plasmaBallPool.Enqueue(this);
+            else if (gameObject.name == "Rocket") TurretManager.Instance.rocketPool.Enqueue(gameObject);
+        }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        DamageUI.instance.AddText(damage, transform.position);
-        AddPool();
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            DamageUI.instance.AddText(damage, transform.position);
+            AddPool();
+        }
     }
 }

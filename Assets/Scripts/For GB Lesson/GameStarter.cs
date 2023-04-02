@@ -21,9 +21,7 @@ namespace Asteroids
 
         private void Spawn()
         {
-
             int numder = Random.Range(0, 3);
-
             switch (numder)
             {
                 case 0:

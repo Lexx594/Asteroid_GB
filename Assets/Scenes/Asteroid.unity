@@ -5584,6 +5584,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1032911662}
   - component: {fileID: 1032911664}
+  - component: {fileID: 1032911665}
+  - component: {fileID: 1032911666}
   m_Layer: 0
   m_Name: ===Game Manager===
   m_TagString: Untagged
@@ -5605,6 +5607,7 @@ Transform:
   m_Children:
   - {fileID: 1830092627}
   - {fileID: 5478000}
+  - {fileID: 1948256065}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5620,8 +5623,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2b509edd9a6024ba908eeb5a900c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 21300000, guid: bca2fab661eba1046b6553f430e66c54, type: 3}
   _bulletPrefab: {fileID: 8019010925812986335, guid: eba11d042b354ee42a911a0167659322, type: 3}
   _plasmaBallPrefab: {fileID: 1644720050721370648, guid: 624e0553fa065fc4a8d5631dd53fa08b, type: 3}
+--- !u!114 &1032911665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032911661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da56603c76ff9142af7d761a132b92e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 21300000, guid: bca2fab661eba1046b6553f430e66c54, type: 3}
+--- !u!114 &1032911666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032911661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf933906fac2d094dacf38a3c138f986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1044680576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6720,7 +6749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271704021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9}
+  m_LocalPosition: {x: -1.08, y: 2.23, z: -9}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9710,6 +9739,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1948256064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948256065}
+  m_Layer: 0
+  m_Name: Rockets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1948256065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948256064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1032911662}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1953112832
 GameObject:
   m_ObjectHideFlags: 0
