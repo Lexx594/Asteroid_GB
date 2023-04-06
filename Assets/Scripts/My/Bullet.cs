@@ -33,7 +33,6 @@ namespace Asteroids
             else if (gameObject.name == "Rocket") TurretManager.Instance.rocketPool.Enqueue(gameObject);
         }
 
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
             DamageUI.instance.AddText(damage, transform.position);
