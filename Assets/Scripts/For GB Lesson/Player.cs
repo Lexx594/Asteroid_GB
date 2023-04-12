@@ -1,15 +1,14 @@
-
 using UnityEngine.UI;
 using UnityEngine;
-using System.Security.Cryptography;
+
 
 
 namespace Asteroids
 {
     internal sealed class Player : MonoBehaviour
     {
-        [SerializeField] private float _speed = 1f;
-        [SerializeField] private float _speedTurn = 1f;
+        public float _speed = 1f;
+        public float _speedTurn = 1f;
         [SerializeField] private float _acceleration = 1f;
         [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private int _hpMax = 1000;
