@@ -12,6 +12,9 @@ namespace Asteroids
 
         public Image healtBar;
 
+        public delegate void SubjectHandler();
+        public event SubjectHandler NotifyObserversEvent;
+
         protected virtual void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
@@ -24,6 +27,8 @@ namespace Asteroids
         protected virtual void Start()
         {
             currentHP = HPMax;
+            VisitorEnemy visitor = new VisitorEnemy();
+            Accept(visitor);
         }
 
 
@@ -34,7 +39,16 @@ namespace Asteroids
             else transform.GetChild(0).gameObject.SetActive(true);
             transform.GetChild(0).transform.rotation = Quaternion.identity;
         }
-        
+
+        public void Accept(VisitorEnemy visitor)
+        {
+            visitor.visit(this);
+        }
+
+        private void OnDestroy()
+        {
+            NotifyObserversEvent?.Invoke();
+        }
 
 
     }

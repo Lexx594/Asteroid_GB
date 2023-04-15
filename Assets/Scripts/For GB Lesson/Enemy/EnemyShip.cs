@@ -81,11 +81,20 @@ namespace Asteroids
                 Mathf.Rad2Deg) - 90f, _rotationSpeed * Time.deltaTime)));
         }
 
+        private void LookAtPlayer()
+        {
+            Vector2 directionToEnemy = _player.transform.position - transform.position;
+            float angleToEnemy = Vector2.Angle(directionToEnemy, transform.up);
+            transform.Rotate(0, 0, angleToEnemy * _rotationSpeed * Time.deltaTime);
+        }
+
 
         void ResetAttack()
         {
             _attack = false;
         }
+
+
 
         private void OnCollisionEnter2D(Collision2D other)
         {
